@@ -11,7 +11,7 @@
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
     "start": "parcel index.html",
-    "predeploy": "rm -rf dist && parcel build index.html --public-url https://raw.githubusercontent.com/portareset1/Rock-Paper-Scissors/gh-pages/",
+    "predeploy": "rm -rf dist && parcel build index.html --public-url https://github.com/portareset1/Rock-Paper-Scissors/",
     "deploy": "gh-pages -d dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
