@@ -117,30 +117,6 @@ const playRound = (playerSelection, computerSelection) =>{
     }
 }
 
-const finishGame = (result) =>{
-
-    $d.removeEventListener("click", playGame);
-    
-    $mainContainer.classList.add("hidden");
-
-    const finishAnimation = gsap.to("body",{background: "black", duration: 2, onReverseComplete: ()=>{  
-        $mainContainer.classList.remove("hidden");
-    }});
-
-       
-    const finishAnimation2 = gsap.to(".game-finished-paraph", {text: {value: result}, duration: 2, ease:"none",delay: 5, onComplete: ()=>{       
-        $gameFinishedContainer.classList.remove("invisible");
-          
-        gsap.fromTo(".restart-button", {autoAlpha: 0}, {autoAlpha: 1, duration:5});
-
-        $restartButton.addEventListener("click", ()=>{
-                finishAnimation.reverse();
-                initGame();
-            })
-        }
-    });
-}
-
 
 const playGame = (e)=>{
     let playerSelection = playerPlay(e);
@@ -169,6 +145,31 @@ const initGame = () =>{
    
 
     $d.addEventListener("click", playGame);
+}
+
+
+const finishGame = (result) =>{
+
+    $d.removeEventListener("click", playGame);
+    
+    $mainContainer.classList.add("hidden");
+
+    const finishAnimation = gsap.to("body",{background: "black", duration: 2, onReverseComplete: ()=>{  
+        $mainContainer.classList.remove("hidden");
+    }});
+
+       
+    const finishAnimation2 = gsap.to(".game-finished-paraph", {text: {value: result}, duration: 2, ease:"none",delay: 5, onComplete: ()=>{       
+        $gameFinishedContainer.classList.remove("invisible");
+          
+        gsap.fromTo(".restart-button", {autoAlpha: 0}, {autoAlpha: 1, duration:5});
+
+        $restartButton.addEventListener("click", ()=>{
+                finishAnimation.reverse();
+                initGame();
+            })
+        }
+    });
 }
 
 startAnimation();
